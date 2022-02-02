@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ page.title }}</title>
+    <link rel="shortcut icon" href="{{ 'img/logo.symbolic.small.png' | relative_url }}">
+    <meta name="description" content="{{ page.description }}"/>
+    <meta name="keywords" content="{{ page.keywords }}"/>
+    <meta name="author" content="{{ site.author }}"/>
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://design.velitasali.com/css/main.css">
+    <link rel="stylesheet" href="https://design.velitasali.com/css/main-dark.css" media="(prefers-color-scheme: dark)">
+    <style>
+        .symbolic-logo-uprotocol {
+            content: url({{ 'img/logo.symbolic.svg' | relative_url }});
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .symbolic-logo-uprotocol {
+                content: url({{ 'img/logo.symbolic.dark.svg' | relative_url }})
+            }
+        }
+    </style>
+</head>
+<body id="page-top">
+    <div class="container transition-navbar my-4" id="main-nav">
+        <header>
+            <nav class="navbar navbar-light navbar-bg navbar-expand-lg">
+                <a href="{{ 'index.html' | relative_url }}">
+                    <img class="symbolic-logo-uprotocol navbar-brand" style="width: 1.6rem;" />
+                </a>
+                <a href="{{ 'index.html' | relative_url }}" class="navbar-brand mx-auto mr-lg-3 ml-lg-0">
+                    {{ site.title}}
+                </a>
+                <button class="border-0 navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarResponsive"
+                        aria-controls="navbarResponsive" 
+                        aria-expanded="false"
+                        aria-label="Toggle top bar visibility">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav justify-content-end ml-auto w-100">
+                        <!-- Enter a collapsable nav item-->
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/uprotocol/specs">
+                                specifications
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="https://github.com/uprotocol">github</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://monora.org">monora</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ 'about' | relative_url }}">about</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <noscript>
+        <div class="container">
+            <div class="alert" role="alert">
+                <h4 class="alert-heading">Javascript is disabled.</h4>
+                <p class="mb-0">
+                    This website requires Javascript to function properly.
+                    Please enable Javascript in your browser settings.
+                </p>
+            </div>
+        </div>
+    </noscript>
+
+    {{ content }}
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <span class="text-secondary" style="font-size: 28pt">&middot;</span>
+                </div>
+                <div class="col-12 mb-4 text-center overflow-hidden">
+                    <p class="m-0 text-secondary">&copy; 2021 monora</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{{ 'js/bootstrap.min.js' | relative_url }}"></script>
+</body>
+</html>
