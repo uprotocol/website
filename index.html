@@ -26,14 +26,14 @@ title: uprotocol
         <div class="col-12 col-md-6 col-lg-4 mb-4">
             <div class="card h-100">
                 <div class="card-header">
-                    <div class="d-flex">
-                        <a href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer" class="py-3 mx-auto">
+                    <div class="ratio ratio-16x9">
+                        <div class="d-flex">
                             <img src="{{ implementator.logo | relative_url }}"
-                                class="card-img-top w-auto"
+                                class="card-img-top w-auto m-auto"
                                 alt="{{ implementator.name}} logo"
                                 title="{{ implementator.name}} logo"
                                 style="height: 8em"/>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -47,7 +47,7 @@ title: uprotocol
                     </h3>
                     <p>{{ implementator.description }}</p>
                     <p class="card-text">
-                        <a class="btn btn-lg btn-primary" href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer">Go to Website <i class="ms-2 fa fa-external-link"></i></a>
+                        <a class="btn btn-primary" href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer">Go to Website <i class="ms-2 fa fa-external-link"></i></a>
                     </p>
                 </div>
             </div>  
