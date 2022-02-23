@@ -10,7 +10,7 @@ title: uprotocol
             <p>{{ site.description}}</p>
             <p class="mb-lg-0">
                 <a href="mailto:{{ site.email }}" class="btn btn-primary btn-lg rounded-pill me-2 shadow" role="button">Contact us</a>
-                <a href="https://velitasali.com/en/blog/development/trebleshot-to-create-content-exchange-standard/" class="btn btn-link btn-lg rounded-pill" role="button" target="_blank" rel="noopener noreferrer">Read more <i class="ms-2 fa fa-external-link"></i></a>
+                <a href="{{ 'about' | relative_url }}" class="btn btn-link btn-lg rounded-pill" role="button">About Initiative</a>
             </p>
         </div>
         <div class="col-12 col-lg-4 text-center text-lg-end my-5 order-first order-lg-last">
@@ -25,16 +25,30 @@ title: uprotocol
         {% for implementator in site.implementators %}
         <div class="col-12 col-md-6 col-lg-4 mb-4">
             <div class="card h-100">
-                <div class="card-img-top text-center mt-4">
-                    <a href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer">
-                        <img src="{{ implementator.logo | relative_url }}" alt="{{ implementator.name}} logo" style="width: 7.5em; height: 7.5em;"/>
-                    </a>
+                <div class="card-header">
+                    <div class="d-flex">
+                        <a href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer" class="py-3 mx-auto">
+                            <img src="{{ implementator.logo | relative_url }}"
+                                class="card-img-top w-auto"
+                                alt="{{ implementator.name}} logo"
+                                title="{{ implementator.name}} logo"
+                                style="height: 8em"/>
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title text-center">
-                        <a href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer">{{ implementator.name }}</a>
+                    <h3 class="card-title">
+                        {{ implementator.name }}
+                        {% for platform in implementator.platforms %}
+                            <i class="fa fa-{{ platform }} ms-2"
+                                alt="Supports {{ platform | capitalize }}"
+                                title="Supports {{ platform | capitalize }}"></i>
+                        {% endfor %}
                     </h3>
-                    <p class="card-text">{{ implementator.description }}</p>
+                    <p>{{ implementator.description }}</p>
+                    <p class="card-text">
+                        <a class="btn btn-lg btn-primary" href="{{ implementator.link }}" target="_blank" rel="noopener noreferrer">Go to Website <i class="ms-2 fa fa-external-link"></i></a>
+                    </p>
                 </div>
             </div>  
         </div>
@@ -57,17 +71,26 @@ title: uprotocol
         </div>
         {% for implementation in site.implementations %}
         <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <div class="card bg-cloud">
-                <div class="card-body">
-                    <h3 class="card-title">
-                        {% if implementation.link %}
-                        <a href="{{ implementation.link }}" target="_blank" rel="noopener noreferrer">{{ implementation.name }}</a>
-                        {% else %}
-                        {{ implementation.name }} <small class="ms-2 text-muted">(Soon)</small>
-                        {% endif %}
-                    </h3>
+            <div class="card bg-cloud h-100">
+                {% if implementation.unfinished %}
+                <div class="card-header">
+                    Coming soon&hellip; <i class="fa fa-time"></i>
+                </div>
+                {% endif %}
+                <div class="card-body{% if implementation.unfinished %} text-secondary{% endif %}">
+                    <h3 class="card-title">{{ implementation.name }}</h3>
                     <p class="card-text">{{ implementation.description }}</p>
                 </div>
+                {% if implementation.links %}
+                <div class="card-footer">
+                    {% for link in implementation.links %}
+                    <a class="me-3" href="{{ link.address }}"{% if link.external %} role="button" target="_blank" rel="noopener noreferrer"{% endif %}>
+                        {{ link.name }}
+                        {% if link.external %}<i class="ms-1 fa fa-external-link"></i>{% endif %}
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
             </div>
         </div>
         {% endfor %}

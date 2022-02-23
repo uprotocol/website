@@ -44,15 +44,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav justify-content-end ms-auto w-100">
-                        <!-- Enter a collapsable nav item-->
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/uprotocol/specs">
-                                specifications
-                            </a>
+                            <a class="nav-link" data-bs-toggle="modal" href="#specsDetailsModal" 
+                                role="button">where are the specs?</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="https://github.com/uprotocol">github</a></li>
-                        <li class="nav-item"><a class="nav-link" href="https://monora.org">monora</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ 'about' | relative_url }}">about</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ 'about' | relative_url }}">initiative</a></li>
                     </ul>
                 </div>
             </nav>
@@ -79,11 +75,38 @@
                     <span class="bigdot"></span>
                 </div>
                 <div class="col-12 mb-4 text-center overflow-hidden">
-                    <p class="m-0 text-secondary">&copy; {{ "now" | date: "%Y" }} monora</p>
+                    <p class="m-0 text-secondary">&copy; {{ "now" | date: "%Y" }} <a href="https://monora.org">monora.org</a></p>
                 </div>
             </div>
         </div>
     </footer>
+    <div class="modal fade" id="specsDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Where is the specification?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Although the JVM implementation of <b>uprotocol</b> is relatively stable, there hasn't been 
+                    an initiative to document the way the protocol works, as that would take a lot of time.</p>
+                    <p>If you care about this happening, please give the <b>specs</b> repo a star
+                        <i class="fa fa-star"></i> on GitHub so that we can know you are interested. You can also approach us so that we can 
+                        talk about how you can help.</p>
+                    <p class="mb-0">
+                        <a class="github-button" href="https://github.com/uprotocol/specs" 
+                            data-color-scheme="no-preference: light; light: light; dark: dark;" 
+                            data-icon="octicon-star" data-size="large" data-show-count="true" 
+                            aria-label="Star uprotocol/specs on GitHub">Star</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="{{ 'js/bootstrap.min.js' | relative_url }}"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
